@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center min-vh-100" style="background-color:#333e50">
+        <div class="bg-light py-3 py-md-5">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-5">
+                                        <h3>Iniciar sesión</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="login" action="login.php" method="post">
+                                <div class="row gy-3 gy-md-4 overflow-hidden">
+                                    <div class="col-12">
+                                        <label for="email" class="form-label">Correo Electrónico</label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="nombre@ejemplo.com" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="password" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" name="pass" id="password" value="" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-grid">
+                                            <button class="btn btn-lg btn-primary" style="margin-top:2rem;background-color:#333e50 " type="submit">Iniciar sesión</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Modal -->
+                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="mySmallModalLabel">Error</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Usuario o contraseña incorrectos.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fin del Modal -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlaces a JavaScript de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Verificar el parámetro 'error' en la URL y mostrar el modal si está presente
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                $('.bd-example-modal-sm').modal('show');
+            }
+        });
+    </script>
+</body>
+</html>
